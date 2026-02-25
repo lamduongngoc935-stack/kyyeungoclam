@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta property="og:title" content="Thiệp Mời Kỷ Yếu | Dương Ngọc Lâm 12A1" />
+    <meta property="og:description" content="Chủ Nhật, 01/03/2026 - Mời cậu đến chụp ảnh cùng tớ tại THPT Phú Bình nhé! 📸" />
+    <meta property="og:image" content="https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/640321177_122098801341285008_4987748257528110810_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEHfsL_37LLJOVYS3yW5XkxRe8fcj5Boj5F7x9yPkGiPh8tblzDiryBJonarBybFXNgYRs9plQ8Iu7oW5uejq8Y&_nc_ohc=iTxoPHM5ilwQ7kNvwGouFSl&_nc_oc=Adkp7Nvcrdorj5Y6H3ttyD_wxfINBShdRqSUqohQ6JYcF1k7_hPgIdCrCqyhdJ6AeevJPIe__-rk80VIaBrtZTGF&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=kpkOYU3CkK1sS8614geQMA&oh=00_AfsJOtEg3hk3mVXGKnK178hyvOACr2j35AvfkUWZl13Atw&oe=69A474A9" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+
+    <title>Thiệp Mời Kỷ Yếu | Dương Ngọc Lâm 12A1</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --mau-nen: #fff9e6;      /* Vàng kem sáng sủa */
+            --mau-chinh: #ff7675;    /* Hồng cam */
+            --mau-phu: #74b9ff;      /* Xanh da trời */
+            --mau-chu: #2d3436;      /* Đen xám dễ nhìn */
+            --font-tieude: 'Pacifico', cursive;
+            --font-chinh: 'Quicksand', sans-serif;
+            --font-tay: 'Dancing Script', cursive;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-chinh); color: var(--mau-chu);
+            background-color: var(--mau-nen);
+            /* Nền caro mờ xinh xắn */
+            background-image: radial-gradient(#fdcb6e 1px, transparent 1px);
+            background-size: 20px 20px;
+            overflow-x: hidden;
+            /* Đảm bảo nội dung luôn căn giữa */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- STICKERS BAY LƠ LỬNG TRÊN ĐIỆN THOẠI --- */
+        .khu-vuc-sticker {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        .nhan-dan {
+            position: absolute; font-size: 2.5rem; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
+            animation: bayLuon 6s ease-in-out infinite alternate;
+        }
+        .nd1 { top: 10%; left: 5%; animation-delay: 0s; font-size: 3rem; }
+        .nd2 { top: 25%; right: 2%; animation-delay: 1s; font-size: 2rem; }
+        .nd3 { top: 45%; left: -2%; animation-delay: 2.5s; font-size: 2.5rem; }
+        .nd4 { bottom: 30%; right: 5%; animation-delay: 0.5s; font-size: 3rem; }
+        .nd5 { bottom: 10%; left: 10%; animation-delay: 1.8s; font-size: 2rem; }
+        .nd6 { top: 60%; right: -5%; animation-delay: 0.8s; font-size: 2.5rem; }
+
+        @keyframes bayLuon {
+            0% { transform: translateY(0) rotate(-10deg) scale(1); }
+            100% { transform: translateY(-30px) rotate(20deg) scale(1.1); }
+        }
+
+        /* --- MÀN HÌNH CHÀO MỞ THIỆP --- */
+        #man-hinh-chao {
+            position: fixed; inset: 0; background: #fff; z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background-image: radial-gradient(#ff7675 1px, transparent 1px); background-size: 25px 25px;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); text-align: center; padding: 20px;
+        }
+        .nut-mo-thiep {
+            margin-top: 30px; padding: 15px 40px; background: var(--mau-chinh); color: #fff;
+            border: 4px solid #fff; border-radius: 50px; font-size: 1.5rem; font-family: var(--font-tieude);
+            box-shadow: 0 10px 20px rgba(255, 118, 117, 0.4); cursor: pointer;
+            animation: nhipTim 1.5s infinite;
+        }
+
+        /* --- KHUNG ĐIỆN THOẠI CHÍNH (Đã sửa căn giữa) --- */
+        .container {
+            width: 100%; /* Đảm bảo chiếm chiều ngang */
+            max-width: 500px; 
+            margin: 0 auto; /* Căn giữa block */
+            padding: 20px 20px 100px; /* Tăng padding 2 bên lên 20px */
+            position: relative; z-index: 2;
+        }
+
+        /* --- THẺ THÔNG TIN (CARD) --- */
+        .the-xinh {
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(5px);
+            border-radius: 25px; padding: 25px 20px; margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 3px solid #fff; position: relative;
+        }
+        .bang-dinh {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-3deg);
+            width: 100px; height: 35px; background: rgba(255, 255, 255, 0.7);
+            border: 1px dashed #ccc; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 5;
+        }
+
+        /* --- PHẦN GIỚI THIỆU CHÍNH --- */
+        .nien-khoa {
+            display: inline-block; background: var(--mau-phu); color: #fff;
+            padding: 8px 20px; border-radius: 30px; font-weight: bold; margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(116, 185, 255, 0.4); border: 2px solid #fff;
+        }
+        .khung-anh-bia {
+            width: 200px; height: 200px; margin: 0 auto 15px; position: relative;
+        }
+        .anh-bia {
+            width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+            border: 6px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            animation: xoayNhe 4s infinite alternate;
+        }
+        .vuong-mien { position: absolute; top: -20px; right: 0; font-size: 3rem; transform: rotate(15deg); }
+        
+        h1 {
+            font-family: var(--font-tieude); font-size: 2.5rem; color: var(--mau-chinh);
+            text-shadow: 2px 2px 0px #fff; line-height: 1.2;
+        }
+        .ten-truong { font-family: var(--font-tay); font-size: 1.8rem; font-weight: bold; color: #555; }
+
+        /* --- CHỮ CHẠY --- */
+        .chu-chay-bg {
+            background: var(--mau-chu); color: #fff; padding: 12px 0;
+            transform: rotate(-3deg); width: 120%; margin-left: -10%; margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .chu-chay { white-space: nowrap; overflow: hidden; font-weight: bold; font-size: 1.1rem; }
+        .chu-chay span { display: inline-block; padding-left: 100%; animation: chayChu 15s linear infinite; }
+
+        /* --- LỜI CAPTION --- */
+        .loi-nhan {
+            font-size: 1.1rem; line-height: 1.6; color: #444; text-align: center;
+            border: 2px dashed var(--mau-chinh); padding: 15px; border-radius: 15px;
+            background: #fff0f0; position: relative;
+        }
+
+        /* --- THÔNG TIN VÉ MỜI --- */
+        .dong-thong-tin {
+            display: flex; align-items: center; gap: 15px; margin-bottom: 15px;
+            background: #f8f9fa; padding: 15px; border-radius: 15px; border-left: 5px solid var(--mau-phu);
+        }
+        .icon-to { font-size: 2rem; color: var(--mau-phu); width: 40px; text-align: center; }
+        .tieu-de-nho { font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: bold; }
+        .noi-dung-to { font-size: 1.1rem; font-weight: bold; color: var(--mau-chu); }
+
+        /* --- ALBUM ẢNH LƯỚT SWIPER --- */
+        .swiper { width: 100%; padding: 20px 0 40px; }
+        .swiper-slide {
+            width: 250px; height: 350px; background-color: #fff; padding: 10px 10px 40px;
+            border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); border: 1px solid #eee;
+        }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; }
+        .chu-thich-anh {
+            position: absolute; bottom: 10px; width: 100%; text-align: center;
+            font-family: var(--font-tay); font-size: 1.5rem; font-weight: bold; color: #555; left: 0;
+        }
+
+        /* --- ĐẾM NGƯỢC --- */
+        .hop-dem-nguoc { display: flex; justify-content: space-around; gap: 10px; margin-top: 15px; }
+        .o-dem {
+            background: var(--mau-chinh); color: #fff; flex: 1; padding: 15px 5px;
+            border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(255, 118, 117, 0.4);
+        }
+        .so-to { font-size: 2rem; font-weight: bold; display: block; line-height: 1; margin-bottom: 5px; }
+        .chu-nho { font-size: 0.8rem; text-transform: uppercase; font-weight: bold; }
+
+        /* --- LIÊN HỆ --- */
+        .nut-lien-he {
+            display: flex; gap: 15px; margin-top: 20px;
+        }
+        .nut-bam {
+            flex: 1; padding: 15px; border-radius: 50px; text-decoration: none;
+            color: #fff; font-weight: bold; text-align: center; display: flex;
+            align-items: center; justify-content: center; gap: 8px; font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: 0.2s;
+        }
+        .nut-bam:active { transform: scale(0.95); }
+        .bg-goi { background: #00b894; border: 2px solid #fff; }
+        .bg-fb { background: #0984e3; border: 2px solid #fff; }
+
+        /* --- FORM ĐĂNG KÝ --- */
+        .o-nhap {
+            width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #dfe6e9;
+            border-radius: 15px; font-family: inherit; font-size: 1rem; outline: none; background: #fff;
+        }
+        .o-nhap:focus { border-color: var(--mau-chinh); }
+        .nut-gui {
+            width: 100%; padding: 18px; background: linear-gradient(45deg, #ff7675, #fdcb6e);
+            color: #fff; border: none; border-radius: 50px; font-weight: bold; font-size: 1.2rem;
+            cursor: pointer; box-shadow: 0 8px 20px rgba(255, 118, 117, 0.4); transition: 0.3s;
+        }
+
+        /* --- THANH NHẠC DƯỚI ĐÁY --- */
+        .thanh-nhac {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 2px solid var(--mau-chinh); z-index: 100;
+        }
+        .dia-nhac {
+            width: 40px; height: 40px; border-radius: 50%; background: var(--mau-chinh);
+            display: flex; align-items: center; justify-content: center; color: #fff;
+            animation: xoayTron 3s linear infinite; animation-play-state: paused; cursor: pointer;
+        }
+        .dia-nhac.dang-phat { animation-play-state: running; }
+
+        /* --- KEYFRAMES --- */
+        @keyframes nhipTim { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        @keyframes chayChu { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+        @keyframes xoayTron { 100% { transform: rotate(360deg); } }
+        @keyframes xoayNhe { 0% { transform: rotate(-5deg); } 100% { transform: rotate(5deg); } }
+
+    </style>
+</head>
+<body>
+
+    <div id="man-hinh-chao">
+        <i class="fas fa-envelope-open-text fa-5x" style="color: var(--mau-chinh); margin-bottom: 20px;"></i>
+        <h2 style="font-family: var(--font-tieude); color: var(--mau-chu); font-size: 2.5rem;">Thiệp mời!</h2>
+        <p style="font-size: 1.2rem; font-weight: bold; color: #666;">Từ: Dương Ngọc Lâm (12A1)</p>
+        <button class="nut-mo-thiep" onclick="moThiepNgay()">MỞ THIỆP NGAY 💌</button>
+    </div>
+
+    <audio id="nhac-nen" loop>
+        <source src="nhaclam.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="khu-vuc-sticker">
+        <div class="nhan-dan nd1">📸</div>
+        <div class="nhan-dan nd2">✨</div>
+        <div class="nhan-dan nd3">🌸</div>
+        <div class="nhan-dan nd4">💖</div>
+        <div class="nhan-dan nd5">🎓</div>
+        <div class="nhan-dan nd6">🍕</div>
+    </div>
+
+    <div class="container">
+        
+        <div style="text-align: center; margin-top: 30px;" data-aos="zoom-in">
+            <div class="nien-khoa">✨ Niên khóa: 2023 - 2026 ✨</div>
+            
+            <div class="khung-anh-bia">
+                <div class="vuong-mien">👑</div>
+                <img src="https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/640321177_122098801341285008_4987748257528110810_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEHfsL_37LLJOVYS3yW5XkxRe8fcj5Boj5F7x9yPkGiPh8tblzDiryBJonarBybFXNgYRs9plQ8Iu7oW5uejq8Y&_nc_ohc=iTxoPHM5ilwQ7kNvwGouFSl&_nc_oc=Adkp7Nvcrdorj5Y6H3ttyD_wxfINBShdRqSUqohQ6JYcF1k7_hPgIdCrCqyhdJ6AeevJPIe__-rk80VIaBrtZTGF&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=YmmJSj_Io6IYVN-qfPQi9A&oh=00_AfuMYKL_azFJgDSFdRCQ-YKfZnjzejDbAhZ-mnVjMQPTVQ&oe=69A474A9" class="anh-bia" alt="Dương Ngọc Lâm">
+            </div>
+
+            <h1>Dương Ngọc Lâm</h1>
+            <div class="ten-truong">Lớp 12A1 • THPT Phú Bình</div>
+        </div>
+
+        <div class="chu-chay-bg" style="margin-top: 40px;">
+            <div class="chu-chay">
+                <span>📸 CHỤP KỶ YẾU LỚP 12A1 🎓 DƯƠNG NGỌC LÂM 🌟 THPT PHÚ BÌNH ✨ THANH XUÂN RỰC RỠ 💖 01/03/2026 📸 CHỤP KỶ YẾU LỚP 12A1 🎓 DƯƠNG NGỌC LÂM 🌟 THPT PHÚ BÌNH ✨ THANH XUÂN RỰC RỠ 💖 01/03/2026 </span>
+            </div>
+        </div>
+
+        <div class="the-xinh" data-aos="fade-up">
+            <div class="bang-dinh"></div>
+            <h2 style="text-align: center; color: var(--mau-chinh); margin-bottom: 15px; font-family: var(--font-tieude);">Lời Ngỏ Xinh Xắn</h2>
+            <div class="loi-nhan">
+                <i class="fas fa-quote-left" style="color: var(--mau-chinh); font-size: 1.5rem;"></i><br>
+                <strong>"Thanh xuân giống như một cơn mưa rào..."</strong><br><br>
+                Sắp tới lớp 12A1 chúng tớ sẽ chụp một bộ ảnh kỷ yếu để lưu giữ lại những kỷ niệm đẹp nhất tuổi học trò. 
+                Sẽ thật tuyệt vời nếu cậu bớt chút thời gian đến chụp cùng mình vài tấm ảnh làm kỉ niệm nha!
+            </div>
+        </div>
+
+        <div class="the-xinh" data-aos="fade-up">
+            <h2 style="text-align: center; color: var(--mau-phu); margin-bottom: 20px; font-family: var(--font-tieude);">Thông Tin "Lên Sóng" 🎬</h2>
+            
+            <div class="dong-thong-tin">
+                <div class="icon-to"><i class="fas fa-calendar-check"></i></div>
+                <div>
+                    <div class="tieu-de-nho">Ngày chụp</div>
+                    <div class="noi-dung-to">Chủ Nhật, 01/03/2026</div>
+                </div>
+            </div>
+
+            <div class="dong-thong-tin">
+                <div class="icon-to"><i class="fas fa-clock"></i></div>
+                <div>
+                    <div class="tieu-de-nho">Khung giờ chụp</div>
+                    <div class="noi-dung-to">10:00 Sáng - 11:30 Trưa</div>
+                </div>
+            </div>
+
+            <div class="dong-thong-tin">
+                <div class="icon-to"><i class="fas fa-school"></i></div>
+                <div>
+                    <div class="tieu-de-nho">Địa điểm chụp ảnh</div>
+                    <div class="noi-dung-to">Sân trường THPT Phú Bình</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="the-xinh" data-aos="flip-up" style="background: var(--mau-chu); color: #fff;">
+            <h2 style="text-align: center; color: #fdcb6e; font-family: var(--font-tieude); margin-bottom: 5px;">Cùng Đếm Ngược Nào!</h2>
+            <p style="text-align: center; font-size: 0.9rem; margin-bottom: 15px;">Sắp đến ngày được mặc đồ đẹp rồi!</p>
+            
+            <div class="hop-dem-nguoc">
+                <div class="o-dem"><span id="ngay" class="so-to">00</span><span class="chu-nho">Ngày</span></div>
+                <div class="o-dem"><span id="gio" class="so-to">00</span><span class="chu-nho">Giờ</span></div>
+                <div class="o-dem"><span id="phut" class="so-to">00</span><span class="chu-nho">Phút</span></div>
+                <div class="o-dem" style="background: #00b894;"><span id="giay" class="so-to">00</span><span class="chu-nho">Giây</span></div>
+            </div>
+        </div>
+
+        <div data-aos="zoom-in" style="margin-top: 30px;">
+            <h2 style="text-align: center; color: var(--mau-chinh); font-family: var(--font-tieude);">Góc Sống Ảo Của Lâm 📸</h2>
+            <p style="text-align: center; font-size: 0.9rem; color: #666;">(Lướt qua để xem ảnh nha)</p>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fhan3-4.fna.fbcdn.net/v/t39.30808-6/641437846_122098734333285008_55538945914336707_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFjZn3N2MZMxm6-0fS-6InNkYsFJhSKi12RiwUmFIqLXUUm3JHxUNIZ13PWOLuJUgz93t0GEbxyDQ3l0qLdbIYx&_nc_ohc=S-k6iwobgNoQ7kNvwHie6K0&_nc_oc=AdlYWpAdOso4GTEOe2fbssQhjUM63ehVht8efOPzvM5-aAjdeZFmJBgPaeBQse03EDIJsM8W2_Tlffp14JlZFZ3B&_nc_zt=23&_nc_ht=scontent.fhan3-4.fna&_nc_gid=ib6U1uCFdy8WvjohsxE7BA&oh=00_AfsgsDtwWktTE3FMlq-tJuHpulnS7jkktAEb3SGNgr8KfQ&oe=69A4549B">
+                        <div class="chu-thich-anh">Chill chill ✨</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/641468429_122098733811285008_5329137285306409878_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFw1MU_gKl9V5ZWnW7ciGUi_G7WmE85r278btaYTzmvbsknV0sJqghjejMnc71v3YlyQaOOS5mEAVrc3mnFdC4q&_nc_ohc=hnJsb1YGtUAQ7kNvwHAVYCE&_nc_oc=AdmXspsu_R2iiTsUbm3sibUyv9P9CuoXRhWMDZsNSCfPU65UEnM3XZJb-vNUMG0hZ-weAvjgYhY6yqTCx-MYIqxm&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=nDZqPYEXigTGW7tbjYeZAg&oh=00_Afsxm0CDLs9LKqbgG9DUno2ZGsxh8EHV2VlQcDUH7bD3Bg&oe=69A47935">
+                        <div class="chu-thich-anh">Thử Vest tíi 🕶️</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/638644484_122098801131285008_8067989507547303672_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFFYR1-zP_vSxbvFnCtwdhwGCgMuad7mwMYKAy5p3ubAw86Eo1OCy85qy4QpPnPmpryqvjGlRsgzzX9tMuC9dFI&_nc_ohc=gmFdKEhZ_uQQ7kNvwGK2DD-&_nc_oc=AdnKC7d4eN2t2B5IN6WPS-eFxaNKJLHd_3spCRZ-sfJrSjj3p5TwcO0qnn-qbcHu3UVKc0azh_VBpqluANfPzoq7&_nc_zt=23&_nc_ht=scontent.fhan4-3.fna&_nc_gid=L3CiXoSgyroxbIh_MFDC_w&oh=00_Afu3gpM9eLHMxkg3H2wMXx1yOaXFTtYh7_lUD_DHcZeurA&oe=69A4983B">
+                        <div class="chu-thich-anh">Đi Chill cùng A1 🎓</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fhan4-5.fna.fbcdn.net/v/t39.30808-6/642810669_122098801143285008_4913479926024067748_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEr6s_m6JCIxLy9RIOnQeEZscfdxM3ArUKxx93EzcCtQgtKaoCnR5gc6WB5QFlhTxBqxM_guBIoQHl7xCt3P46o&_nc_ohc=ZWi7PTj4QD4Q7kNvwGiWVCz&_nc_oc=Adnn2qjZQp7W4MTrLHfHblZRB3JWcQxS7PsLbXsUu_XF6d2XUUJWY9PMsYbVSh7t1hlSnP5qJkvysx8eC_BiIxc3&_nc_zt=23&_nc_ht=scontent.fhan4-5.fna&_nc_gid=9eo6DGno3MCteQA_C6lH3Q&oh=00_AfsK7aRM0KY8HwtZzQdIwVJ-1rBahksmzZfvap5onmqxFw&oe=69A47E2E">
+                        <div class="chu-thich-anh">Happy New Year ✨</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/639835081_122098734105285008_5748461288868816576_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGyHMxWcUl9z8K2YANkvobwTcM1S8IR9b5NwzVLwhH1vqti_fbyJeKgSKyqMiRYb-gbA0Qk6jJK_aEGLp5y-JPq&_nc_ohc=oNr0MrZ0OHQQ7kNvwHV7Whs&_nc_oc=Adm7vzegV4U9bRxnlepoMP7KWG31ejPZwSIwzkFHROBhTSZF_1_kaejXHcnaepkkrrY8jkjbpsw6eDvZhsqstEdf&_nc_zt=23&_nc_ht=scontent.fhan3-3.fna&_nc_gid=I6C5DcRrJajnNdQsCiTVzw&oh=00_AfsswLwRAh5rpbBp8_2pSJtVduC8BmA_o_NtK68qnZz35Q&oe=69A47281">
+                        <div class="chu-thich-anh"> :V 🕶️</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fhan3-2.fna.fbcdn.net/v/t39.30808-6/640424999_122098737225285008_5207915032308932209_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHgFjg97g_gWOw7fhgiiDiiI8tw9BDZTa8jy3D0ENlNr9o4p-YMuX5oyAA2fQvcUe6NMxUk-ZBwZ4rDc9rTlI2D&_nc_ohc=zYFaOTJf0NkQ7kNvwGbDucA&_nc_oc=AdlwHI3JmKDQ9yj_blb-9lfojAG9lkBY7-Lhl_oRFJcSn9gJnSE4YrUD2sJvoHEzpuC7jwcDp-uC5wky_tepwYmT&_nc_zt=23&_nc_ht=scontent.fhan3-2.fna&_nc_gid=tZ6KqGJ1fpRI0LiM-30OSA&oh=00_Afu7fotwKJsN3wtZED0KnVpAeqaFnCps3mGsdEGjGH5OTA&oe=69A45601">
+                        <div class="chu-thich-anh">A1K62 🎓</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="the-xinh" data-aos="fade-up">
+            <h2 style="text-align: center; color: var(--mau-phu); margin-bottom: 20px; font-family: var(--font-tieude);">Lịch Trình Quẩy Lớp 📅</h2>
+            
+            <div style="border-left: 3px dashed var(--mau-chinh); padding-left: 20px; margin-left: 40px;">
+                <div style="margin-bottom: 20px; position: relative;">
+                    <div style="position: absolute; left: -31px; top: 0; background: #fff; border: 3px solid var(--mau-chinh); width: 18px; height: 18px; border-radius: 50%;"></div>
+                    <strong style="color: var(--mau-chinh); font-size: 1.1rem;">10:00 Sáng</strong>
+                    <p style="font-weight: bold;">Tập trung, điểm danh</p>
+                    <p style="font-size: 0.9rem; color: #666;">Chỉnh trang đầu tóc, makeup lại sương sương.</p>
+                </div>
+                <div style="margin-bottom: 20px; position: relative;">
+                    <div style="position: absolute; left: -31px; top: 0; background: #fff; border: 3px solid var(--mau-chinh); width: 18px; height: 18px; border-radius: 50%;"></div>
+                    <strong style="color: var(--mau-chinh); font-size: 1.1rem;">10:15 Sáng</strong>
+                    <p style="font-weight: bold;">Chụp cùng gia đình, bạn bè</p>
+                    <p style="font-size: 0.9rem; color: #666;">Chụp riêng từng người, và chụp chung 1 kiểu.</p>
+                </div>
+                <div style="position: relative;">
+                    <div style="position: absolute; left: -31px; top: 0; background: #fff; border: 3px solid var(--mau-chinh); width: 18px; height: 18px; border-radius: 50%;"></div>
+                    <strong style="color: var(--mau-chinh); font-size: 1.1rem;">11:00 Sáng</strong>
+                    <p style="font-weight: bold;">Chụp tự do, tổng kết.</p>
+                    <p style="font-size: 0.9rem; color: #666;">Đoạn này tha hồ chụp riêng với Lâm luôn nha!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="the-xinh" data-aos="zoom-in" style="background: #fff0f0; border-color: var(--mau-chinh);">
+            <h2 style="text-align: center; color: var(--mau-chinh); margin-bottom: 10px; font-family: var(--font-tieude);">Xác Nhận Tham Gia 📝</h2>
+            <p style="text-align: center; font-size: 0.95rem; margin-bottom: 20px;">Cậu điền form để tớ biết đường tiếp đón nha!</p>
+            
+            <form id="form-dang-ky" onsubmit="guiThongTin(event)">
+                <input type="text" class="o-nhap" placeholder="Tên của cậu là gì dợ?..." required>
+                <select class="o-nhap">
+                    <option>Chắc chắn 100% sẽ đến! 🥰</option>
+                    <option>Sẽ cố gắng thu xếp đến 🥳</option>
+                    <option>Tiếc quá hôm đó tớ bận rồi 😢</option>
+                </select>
+                <input type="text" class="o-nhap" placeholder="Lời nhắn gửi yêu thương cho tớ...">
+                <button type="submit" class="nut-gui">Gửi Đi Ngay Thôi 🚀</button>
+            </form>
+
+            <h3 style="text-align: center; margin-top: 30px; font-family: var(--font-tieude);">Alo Cho Tớ Nè:</h3>
+            <div class="nut-lien-he">
+                <a href="tel:0333041525" class="nut-bam bg-goi"><i class="fas fa-phone-alt"></i> Gọi Điện</a>
+                <a href="https://www.facebook.com/ngoclam.2802" target="_blank" class="nut-bam bg-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; margin-top: 15px; font-weight: bold; color: #666;">SĐT: 0333 041 525</p>
+        </div>
+
+    </div>
+
+    <div class="thanh-nhac" onclick="batTatNhac()">
+        <div class="dia-nhac" id="icon-nhac"><i class="fas fa-music"></i></div>
+        <div style="line-height: 1.2;">
+            <div style="font-weight: bold; font-size: 0.9rem; color: var(--mau-chinh);">Thanh Xuân</div>
+            <div style="font-size: 0.75rem; color: #666;">   </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // 1. KHỞI TẠO HIỆU ỨNG CUỘN (AOS)
+        AOS.init({ duration: 800, once: false });
+
+        // 2. LOGIC MÀN HÌNH CHÀO VÀ NHẠC CỰC CHUẨN TRÊN ĐIỆN THOẠI
+        const manHinhChao = document.getElementById('man-hinh-chao');
+        const nhacNen = document.getElementById('nhac-nen');
+        const iconNhac = document.getElementById('icon-nhac');
+        let dangPhatNhac = false;
+
+        function moThiepNgay() {
+            // Hiệu ứng bay lên
+            manHinhChao.style.transform = 'translateY(-100%)';
+            
+            // Tự động phát nhạc
+            nhacNen.play().then(() => {
+                dangPhatNhac = true;
+                iconNhac.classList.add('dang-phat');
+            }).catch(loi => {
+                console.log("Cần bấm thủ công để phát nhạc do bảo mật trình duyệt");
+            });
+        }
+
+        // Bấm vào thanh nhạc dưới đáy
+        function batTatNhac() {
+            if (dangPhatNhac) {
+                nhacNen.pause();
+                iconNhac.classList.remove('dang-phat');
+            } else {
+                nhacNen.play();
+                iconNhac.classList.add('dang-phat');
+            }
+            dangPhatNhac = !dangPhatNhac;
+        }
+
+        // 3. ĐẾM NGƯỢC ĐẾN 01/03/2026 (10:00 Sáng)
+        const ngayDich = new Date("March 1, 2026 10:00:00").getTime();
+        setInterval(() => {
+            const hienTai = new Date().getTime();
+            const khoangCach = ngayDich - hienTai;
+
+            const ngay = Math.floor(khoangCach / (1000 * 60 * 60 * 24));
+            const gio = Math.floor((khoangCach % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const phut = Math.floor((khoangCach % (1000 * 60 * 60)) / (1000 * 60));
+            const giay = Math.floor((khoangCach % (1000 * 60)) / 1000);
+
+            document.getElementById('ngay').innerText = ngay < 10 ? '0' + ngay : ngay;
+            document.getElementById('gio').innerText = gio < 10 ? '0' + gio : gio;
+            document.getElementById('phut').innerText = phut < 10 ? '0' + phut : phut;
+            document.getElementById('giay').innerText = giay < 10 ? '0' + giay : giay;
+        }, 1000);
+
+        // 4. LƯỚT ẢNH NHƯ TIKTOK/IG BẰNG SWIPER
+        var swiper = new Swiper(".mySwiper", {
+            effect: "cards",
+            grabCursor: true,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+        });
+
+        // 5. HIỆU ỨNG GỬI FORM VÀ BẮN PHÁO HOA
+        function guiThongTin(event) {
+            event.preventDefault(); // Ngăn load lại trang
+            
+            // Nổ pháo hoa tưng bừng
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ff7675', '#74b9ff', '#fdcb6e']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ff7675', '#74b9ff', '#fdcb6e']
+                });
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+
+            // Hiển thị thông báo
+            const nut = event.target.querySelector('.nut-gui');
+            const chuCu = nut.innerText;
+            nut.innerText = "YÊU CẬU NHIỀU! 🥰";
+            nut.style.background = "#00b894";
+            
+            setTimeout(() => {
+                alert("Đã nhận được thông tin đăng ký của cậu! Hẹn 01/03 nha ❤️");
+                event.target.reset();
+                nut.innerText = chuCu;
+                nut.style.background = "linear-gradient(45deg, #ff7675, #fdcb6e)";
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
